@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STARK INDUSTRIES // SYSTEM BOOT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="bootScreen" class="boot-overlay">
+        <div class="scanner-box">
+            <video id="bootCamera" autoplay playsinline muted></video>
+            <div class="scan-laser"></div>
+            <div class="scanner-ui">
+                <p class="scan-status">RETINAL SCAN REQUIRED</p>
+                <button id="startScanBtn">INITIALIZE BIOMETRICS</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="mainHud" class="hud-container hidden">
+        
+        <div class="hud-column tactical-left">
+            <div class="hud-panel">
+                <div class="panel-header">WEAPON SYSTEMS</div>
+                <div class="stat-row"><span>REPULSORS:</span> <span class="cyan-text">READY</span></div>
+                <div class="stat-row"><span>UNI-BEAM:</span> <span class="cyan-text">100% CHARGED</span></div>
+                <div class="stat-row"><span>FLARE PODS:</span> <span>4/4</span></div>
+            </div>
+            
+            <div class="hud-panel matrix-grid">
+                <div class="panel-header">DIAGNOSTIC MATRIX</div>
+                <div class="matrix-box" id="matrixStream"></div>
+            </div>
+        </div>
+
+        <div class="hud-column tactical-center">
+            <div class="horizon-line"></div>
+            <div class="reticle-ring ring-outer"></div>
+            <div class="reticle-ring ring-inner"></div>
+            <div class="target-box">
+                <span class="lock-status">SEARCHING FOR THREATS...</span>
+            </div>
+        </div>
+
+        <div class="hud-column tactical-right">
+            <div class="hud-panel helmet-cam-panel">
+                <div class="panel-header">HELMET CAM // USER_ID</div>
+                <div class="canvas-wrapper">
+                    <canvas id="hudFaceCanvas"></canvas>
+                    <div class="helmet-tint"></div>
+                    <div class="hud-tracking-vectors"></div>
+                </div>
+            </div>
+
+            <div class="hud-panel">
+                <div class="panel-header">TELEMETRY</div>
+                <div class="stat-row"><span>ALTITUDE:</span> <span id="telemetryAlt" class="cyan-text">0m</span></div>
+                <div class="stat-row"><span>VELOCITY:</span> <span id="telemetrySpeed" class="cyan-text">MACH 0.0</span></div>
+            </div>
+        </div>
+
+        <footer class="jarvis-dock">
+            <div class="ai-header">
+                <div class="ai-orb"></div>
+                <span>J.A.R.V.I.S. V4.2 // ONLINE</span>
+            </div>
+            <div class="terminal-container">
+                <div class="terminal-log" id="terminalOutput"></div>
+                <div class="terminal-controls">
+                    <input type="text" id="userInput" placeholder="Awaiting verbal command, sir..." autocomplete="off">
+                    <button id="sendBtn">SEND</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
